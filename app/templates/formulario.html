@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button onclick="add()" width="800px" height="300px">Presioname</button>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+function add(){
+    var formm = new FormData();
+    formm.append("Matricula","186010028");
+    formm.append("Nombre","Miguel");
+    formm.append("ApPaterno","Mendez");
+    formm.append("ApMaterno","Flores");
+    formm.append("Carrera","ISC");
+    formm.append("Grupo","8S21");
+    formm.append("Correo","dnmiguel.friky@gmail.com");
+    formm.append("Telefono","0000000000");
+    formm.append("Contrasenia","12345678");
+    formm.append("ConfContra","12345678");
+    //formm.append("lol","lol");
+    /*formm.append("Matricula","186010028ppp");
+    formm.append("Nombre","Miguel1Miguel1Miguel1Miguel1Miguel1Miguel1Miguel1Miguel1");
+    formm.append("ApPaterno","Mendez1Mendez1Mendez1Mendez1Mendez1Mendez1Mendez1Mendez1Mendez1Mendez1");
+    formm.append("ApMaterno","Flores1Flores1Flores1Flores1Flores1Flores1Flores1Flores1Flores1Flores1Flores1");
+    formm.append("Carrera","ISC1");
+    formm.append("Grupo","8S212");
+    formm.append("Correo","dnmiguel.friky@gmail.com");
+    formm.append("Telefono","5577271306ppp");
+    formm.append("Contrasenia","12345678m12345678m12345678m*");
+    formm.append("ConfContra","12345678");*/
+	fetch("/verificar",{
+			method: "POST",
+			body: formm,
+			headers: {
+				"X-Requested-With": "XMLHttpRequest"
+			}
+	}).then(
+			function(response){
+				return response.json();
+			}
+		).then(
+			function (data){
+				array_sus = data.error;
+				console.log(array_sus);
+                alert(array_sus);
+			}
+		);
+
+
+
+}
+
+</script>
+</html>

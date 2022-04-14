@@ -17,8 +17,16 @@ def verificar():
         form=dict(request.form)
         palAce=palabrasAceptadas(form)
         if palAce=="":
-            return jsonify({"error":"no"})
+            palAce="no"
 
-        else:
-            return jsonify({"error":palAce})
+        
+        logs = open("logs.txt","a")
+        
+        
+        logs.writelines(str(form)+"\n")
+        logs.writelines(palAce+"\n\n\n\n\n\n")
+        logs.close()
+        
+        
+        return jsonify({"error":palAce})
 

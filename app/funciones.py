@@ -52,7 +52,7 @@ def palabrasAceptadas(datos):
                     errores+="Solo se permiten 10 numeros en el campo: "+x+"\n"
                     break
                 elif (len(datos[x])!=9 and x == "Matricula"):
-                    c+="Solo se permiten 9 numeros en el campo: "+x+"\n"
+                    errores+="Solo se permiten 9 numeros en el campo: "+x+"\n"
                     break
                 for x2 in datos[x]:
                     try:
